@@ -1,4 +1,11 @@
-# Validation presets
+---
+title: Modal Validation
+next:
+  text: 'Modal presets'
+  link: 'components/modal/presets'
+---
+
+# Modal Validation Presets
 
 Validation presets are exclusive for modal component providing `plug-and-play` validation for the developer.
 

@@ -1,4 +1,11 @@
-# Modal presets
+---
+title: Modal Presets
+next:
+  text: 'Select'
+  link: 'components/select/select'
+---
+
+# Modal Presets
 
 Modal presets represet a premade config for common modal usecases.
 

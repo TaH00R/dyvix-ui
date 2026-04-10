@@ -1,3 +1,10 @@
+---
+title: Modal Themes
+next:
+  text: 'Modal validation'
+  link: 'components/modal/validation'
+---
+
 # Modal Themes
 
 Modal Themes defines visual identity of your modal providing unique layout and feel for the modal.

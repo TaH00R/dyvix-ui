@@ -1,4 +1,11 @@
-# Modal elements
+---
+title: Modal Elements
+next:
+  text: 'Modal themes'
+  link: 'components/modal/themes'
+---
+
+# Modal Elements
 
 Modal elements represet the specific type of the fields present in the modal
 

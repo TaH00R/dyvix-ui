@@ -1,3 +1,10 @@
+---
+title: Animations
+next:
+  text: 'Modal'
+  link: 'components/modal/modal'
+---
+
 # Animations
 
 Animation is a vital part of the dyvix UI components. All component support these smooth animations.
