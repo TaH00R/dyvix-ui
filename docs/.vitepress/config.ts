@@ -32,6 +32,7 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: 'components/modal/modal' },
               { text: 'Themes', link: 'components/modal/themes' },
+              { text: 'Elements', link: 'components/modal/elements' },
               { text: 'Animations', link: 'guide/animations' },
               { text: 'Validations', link: 'components/modal/validation' },
               { text: 'Presets', link: 'components/modal/presets' }

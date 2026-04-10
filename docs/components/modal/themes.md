@@ -1,6 +1,6 @@
 # Modal Themes
 
-Modal Themes are exclusive for modal component providing unique layout and feel for the modal.
+Modal Themes defines visual identity of your modal providing unique layout and feel for the modal.
 
 ## Available Themes
 
