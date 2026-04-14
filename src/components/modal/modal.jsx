@@ -21,6 +21,7 @@ export const vaildThemes = themesData.map((e) => e.theme);
 export const validType = typesData.map((e) => e.type);
 export const validAnimations = animationsData.map((e) => e.animation);
 export const validPreset = presetData.map((e) => e.preset);
+export const validRules = validationData.map((e) => e.preset);
 
 export const eleData = elementsData;
 const componentsMap = { DynamicSelect: DynamicSelect };
