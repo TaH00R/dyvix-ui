@@ -69,7 +69,6 @@ function Modal({
     onSubmit
   );
   const modalRef = React.useRef(null);
-  console.log(SJCManager("../../components/modal/dependencies/themes.json" ,"../../components/modal/dependencies/style/themes.css", CACHETYPE.CSS, "Modal", "theme", "Industrial", "class"));
   function handleInputChange(name, value) {
     const validation = handleValidation();
     const nextData = { ...data, [name]: value };
@@ -178,6 +177,12 @@ function Modal({
         SetData((prev) => ({ ...prev, [name]: null }));
       });
     });
+    /*
+    (async () => {
+    const res = await SJCManager("../../components/modal/dependencies/themes.json" ,"../../components/modal/dependencies/style/themes.css", CACHETYPE.CSS, "Modal", "theme", "Industrial", "class");
+    console.log(res);
+  })();
+  */
   }, []);
 
   // Auto-focus for the first input when modal opens
