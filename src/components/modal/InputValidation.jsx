@@ -59,7 +59,8 @@ export async function SerializeData(
   Id,
   Class,
   onSubmit,
-  callback
+  callback,
+  instance
 ) {
   const validator = await ValidateInput(
     title,
@@ -71,7 +72,8 @@ export async function SerializeData(
     Id,
     Class,
     onSubmit,
-    callback
+    callback,
+    instance
   );
 
   if (validator.status === GaurdStatus.Error) {
@@ -104,7 +106,8 @@ export async function ValidateInput(
   Id,
   Class,
   onSubmit,
-  callback
+  callback,
+  instance
 ) {
   if (preset !== '!/') {
     if (!validPreset.includes(preset)) {
@@ -123,7 +126,7 @@ export async function ValidateInput(
       'animation',
       component
     ),
-    ValidatAndLoadJSON(CacheMapping, theme, callback, 'theme', component)
+    ValidatAndLoadJSON(CacheMapping, theme, callback, 'theme', component, instance)
   ]);
 
   if (animation !== '!/' && !isAnimation && allowsNull(animation)) {
