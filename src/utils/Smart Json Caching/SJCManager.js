@@ -15,8 +15,16 @@ export async function SJCManager(
 ) {
   let result = null;
   const key = generateCacheKey(component, utility);
-  result = await cachelayerOne();
-  (jsonpath, csspath, type, component, utility, jsonKey, jsonclasskey, key);
+  result = await cachelayerOne(
+    jsonpath,
+    csspath,
+    type,
+    component,
+    utility,
+    jsonKey,
+    jsonclasskey,
+    key
+  );
 
   if (result === null)
     result = await cachelayerTwo(
@@ -107,7 +115,6 @@ async function cachelayerThree(
     expires: Date.now() + 30 * 24 * 60 * 60 * 1000
   };
   localStorage.setItem(keys[0], JSON.stringify(existingL1cache));
-  console.log('L3');
   return result;
 }
 
@@ -142,7 +149,7 @@ async function cachelayerTwo(
   };
   return result;
 }
-
+// Caches only the config ever used in a month. Limited to 10.
 async function cachelayerOne(
   jsonpath,
   csspath,
@@ -153,13 +160,37 @@ async function cachelayerOne(
   jsonclasskey,
   key
 ) {
-  return null;
-  extractCSSClass(
-    'dyvix-modal-ember',
-    '../../components/modal/dependencies/style/themes.css'
-  );
-  if (type === CACHETYPE.CSS) {
-  }
+  let cssResult = null;
+  let jsonResult = null;
+
+  key += '_L1';
+  let cachedData = null;
+
+  if (!localStorage.getItem(key)) return null;
+
+  cachedData = JSON.parse(localStorage.getItem(key));
+
+  Object.keys(cachedData).forEach((element) => {
+    const expires_at = cachedData[element].expires;
+
+    if (expires_at && expires_at < Date.now()) {
+      delete cachedData[element];
+    }
+  });
+
+  localStorage.setItem(key, JSON.stringify(cachedData));
+
+  const entry = cachedData[jsonKey];
+  if (!entry) return null;
+
+  jsonResult = entry.JSON;
+  cssResult = entry.CSS;
+  let result = {
+    ...(cssResult !== null && { CSS: cssResult }),
+    ...(jsonResult !== null && { JSON: jsonResult })
+  };
+
+  return result;
 }
 
 async function extractFile(path) {
