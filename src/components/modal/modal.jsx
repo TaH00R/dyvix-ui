@@ -17,6 +17,7 @@ import React from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { SerializeData } from './InputValidation';
+import Version from '../../../package.json';
 
 export const validType = typesData.map((e) => e.type);
 export const validPreset = presetData.map((e) => e.preset);
@@ -57,6 +58,7 @@ function Modal({
   const [status, SetStatus] = React.useState('entering');
   const [configs, SetConfig] = React.useState({});
   const [fields, SetFields] = React.useState(null);
+  const instanceId = React.useId();
   const modalRef = React.useRef(null);
   function handleInputChange(name, value) {
     const validation = handleValidation();
@@ -165,13 +167,19 @@ function Modal({
         Id,
         Class,
         onSubmit,
-        SetConfig
+        SetConfig,
+        instanceId
       );
 
       SetFields(data);
     }
 
     GetFields();
+    return () => {
+      const key = `DYVIX_${Version["version"]}_Modal_theme_${instanceId}`
+      const ele = document.getElementById(key);
+      if(ele) ele.remove();
+    };
   }, [theme]);
 
   React.useEffect(() => {

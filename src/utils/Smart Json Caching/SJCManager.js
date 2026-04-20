@@ -11,7 +11,8 @@ export async function SJCManager(
   component,
   utility,
   jsonKey,
-  jsonclasskey = ''
+  jsonclasskey = '',
+  instance
 ) {
   let result = null;
   const key = generateCacheKey(component, utility);
@@ -52,7 +53,7 @@ export async function SJCManager(
   if (result === null) return result;
 
   if (result?.CSS) {
-    InjectCSS(result.CSS, key);
+    InjectCSS(result.CSS, key, instance);
   }
   return result.JSON;
 }
@@ -234,15 +235,23 @@ async function extractCSSClass(classname, Csspath = null, cssblock = null) {
   return block;
 }
 
-function InjectCSS(csstext, Key) {
+function InjectCSS(csstext, Key, instance) {
+  if (instance === null) return false;
+  Key = Key + `_${instance}`;
   const existing = document.getElementById(Key);
+  
+  if (existing) {
+    if (existing.textContent === csstext) return true;
 
-  if (existing) return;
+    existing.textContent = csstext;
+    return;
+  };
   const style = document.createElement('style');
   style.id = Key;
   style.type = 'text/css';
   style.textContent = csstext;
   document.head.appendChild(style);
+   return true;
 }
 
 export async function ValidatAndLoadJSON(
@@ -250,7 +259,8 @@ export async function ValidatAndLoadJSON(
   key,
   callback,
   utilityKey,
-  component
+  component,
+  instance = null
 ) {
   if (!cacheMap) return false;
 
@@ -263,7 +273,8 @@ export async function ValidatAndLoadJSON(
     component,
     utilityKey,
     key,
-    'class'
+    'class',
+    instance
   );
   callback((prev) => {
     if (prev[utilityKey] === res) return prev;
