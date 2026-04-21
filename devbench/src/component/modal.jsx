@@ -10,10 +10,42 @@ export function ModalTest() {
 
   return (
     <Modal
-      theme={DYVIX_MODAL_THEME.MIDNIGHT}
-      animation={DYVIX_GLOBAL_ANIMATION.AURORA}
-      preset={'Login'}
-      //onSubmit={(data) => console.log(data)}
+      title="Register"
+      Id="register-modal"
+      Class="modal"
+      theme="Aurora"
+      animation="glitch"
+      type="form"
+      elements={[
+        {
+          type: 'text',
+          placeholder: ['First Name', 'Last Name'],
+          id: 'name',
+          name: ['firstName', 'lastName'],
+          className: 'ex-text',
+          amount: 2
+        },
+        {
+          type: 'email',
+          placeholder: 'Email',
+          validation: 'email',
+          id: 'email',
+          name: 'email',
+          className: 'ex-text',
+          amount: 1
+        },
+        {
+          type: 'password',
+          placeholder: 'Password',
+          validation: 'password',
+          id: 'password',
+          name: 'password',
+          className: 'ex-text',
+          amount: 1
+        }
+      ]}
+      onSubmit={(data) => console.log(data)}
+      onChange={(data) => console.log(data)}
     />
   );
 }
