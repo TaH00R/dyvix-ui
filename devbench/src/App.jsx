@@ -31,6 +31,8 @@ function App() {
     SetCurrent(sender);
   }
 
+  localStorage.clear(); // Never do in production. Only in development env.
+
   useGSAP(() => {
     let tl = gsap.timeline();
 
