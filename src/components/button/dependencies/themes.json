@@ -8,5 +8,10 @@
     "theme": "Neon",
     "class": "dyvix-button-neon",
     "default-animation": "pulse"
+  },
+  {
+    "theme": "Aurora",
+    "class": "dyvix-button-aurora",
+    "default-animation": "aurora"
   }
 ]

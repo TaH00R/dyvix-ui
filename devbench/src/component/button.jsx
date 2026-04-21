@@ -4,7 +4,7 @@ export function ButtonTest() {
   return (
     <>
 
-      <DyvixButton onClick={() => console.log('clicked')} animation={'bubble'} theme={"Neon"}>
+      <DyvixButton onClick={() => console.log('clicked')} animation={'bubble'} theme={"Aurora"}>
       Submit
     </DyvixButton>
     </>
