@@ -15,21 +15,92 @@
   border: #000000 5px double;
   transform: scale(1.09);
 }
-
-.dyvix-button-industrial {
-  background: radial-gradient(circle, #d60000 0%, #1a1a1a 100%);
-  box-shadow: 0 0 344440px #b903e2;
-  -webkit-box-shadow: 0 0 30px #b903e2;
-  -moz-box-shadow: 0 0 30px #b903e2;
-  border: #a3a3a3 3px double;
-  border-radius: 10rem;
-  transition: all 0.3s ease-in-out;
+.dyvix-button-neon {
+  background: #4deeea;
+  background: radial-gradient(
+    circle,
+    rgba(77, 238, 234, 1) 0%,
+    rgba(112, 186, 239, 1) 43%,
+    rgba(240, 0, 255, 1) 100%
+  );
+  box-shadow: 0px 0px 20px 2px rgba(252, 46, 255, 0.4);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 4rem;
+  
+  transition: 
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+    border-radius 0.2s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
-.dyvix-button-industrial:hover {
-  border: #000000 3px double;
-  transform: scale(2.09);
+.dyvix-button-neon:hover {
+  border-radius: 2rem;
+  transform: scale(1.02);
+  background: #1c4241;
+  background: radial-gradient(
+    circle,
+    rgba(112, 186, 239, 1) 0%,
+    rgba(77, 238, 234, 1) 43%,
+    rgba(240, 0, 255, 1) 90%
+  );
+  box-shadow: 0px 0px 56px 4px rgba(252,61,255,1);
 }
-.dyvix-button-industrial:active {
-  border: #000000 5px double;
-  transform: scale(1.09);
+.dyvix-button-neon:active {
+  background-color: #5eeeec;
+  background: radial-gradient(
+    circle,
+    rgb(10, 152, 150) 0%,
+    rgb(110, 167, 207) 43%,
+    rgb(84, 4, 90) 100%
+  );
+  transform: scale(0.97);
+}
+.dyvix-button-aurora {
+  background: #14e81e;
+  background: linear-gradient(
+    99deg,
+    rgba(20, 232, 30, 1) 0%,
+    rgba(0, 234, 141, 1) 21%,
+    rgba(1, 177, 179, 1) 46%,
+    rgba(1, 126, 213, 1) 67%,
+    rgba(181, 61, 255, 1) 100%
+  );
+  border-radius: 3rem;
+  border: 1px solid rgba(165, 164, 164, 0.1);
+  box-shadow: 0px 0px 75px 0px rgba(1, 176, 179, 0.9);
+  transition:
+    box-shadow 0.3s ease-in-out,
+    transform 0.3s ease-in-out,
+    border-radius 0.2s ease-in-out,
+    background-color 0.1s ease-in-out;
+}
+.dyvix-button-aurora:hover {
+  border-radius: 5rem;
+  background: #14e81e;
+  background: linear-gradient(
+    99deg,
+    rgb(93, 189, 98) 0%,
+    rgba(0, 234, 141, 1) 21%,
+    rgba(1, 177, 179, 1) 46%,
+    rgb(100, 187, 250) 67%,
+    rgba(181, 61, 255, 1) 100%
+  ); 
+  transform: scale(1.04);
+  box-shadow: 0px 0px 50px 10px rgba(1, 176, 179, 0.8);
+}
+.dyvix-button-aurora:active {
+  border-radius: 5rem;
+  background: linear-gradient(
+    99deg,
+    rgb(165, 255, 169) 0%,
+    rgb(166, 248, 215) 21%,
+    rgb(189, 250, 251) 46%,
+    #b7ddf8 67%,
+    rgb(227, 181, 255) 100%
+  );
+  transform: scale(0.98);
+  filter: brightness(1.2);
+  box-shadow: 0px 0px 5px 8px rgba(1, 176, 179, 1);
 }
