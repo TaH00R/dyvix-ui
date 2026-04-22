@@ -5,6 +5,26 @@
     "default-animation": "bubble"
   },
   {
+    "theme": "Industrial",
+    "class": "dyvix-button-industrial",
+    "default-animation": "fade"
+  },
+  {
+    "theme": "Ember",
+    "class": "dyvix-button-ember",
+    "default-animation": "glitch"
+  },
+  {
+    "theme": "Frost",
+    "class": "dyvix-button-frost",
+    "default-animation": "unfold"
+  },
+  {
+    "theme": "Blade",
+    "class": "dyvix-button-blade",
+    "default-animation": "zoom"
+  },
+  {
     "theme": "Neon",
     "class": "dyvix-button-neon",
     "default-animation": "pulse"
@@ -13,5 +33,10 @@
     "theme": "Aurora",
     "class": "dyvix-button-aurora",
     "default-animation": "aurora"
+  },
+  {
+    "theme": "Sunset",
+    "class": "dyvix-button-sunset",
+    "default-animation": "drop"
   }
 ]
