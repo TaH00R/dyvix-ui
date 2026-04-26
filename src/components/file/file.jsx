@@ -4,9 +4,14 @@ import { EvaluateFailure, GaurdStatus } from '../../utils/DyvixGuard';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Version from '../../../package.json';
+import { Validatefile } from './validation';
 
-function DyvixFile({ label = 'Upload File', multiple=false, onUpload }) {
+function DyvixFile({ label = 'Upload File', animation = '', multiple=false, onUpload }) {
   const [file, Setfile] = React.useState(null);
+  const fileRef = React.useRef(null);
+  const [configs, SetConfig] = React.useState({});
+  const instanceId = React.useId();
+
   function handleFileChange(e) {
     const files = e.target.files;
     if(files && files[0])
@@ -38,9 +43,41 @@ function DyvixFile({ label = 'Upload File', multiple=false, onUpload }) {
     }
   }
 
+  const currentAnimation = animation ? configs['animation'] : null;
+  React.useEffect(() => {
+    async function validate() {
+      const validator = await Validatefile(
+        animation,
+        "",
+        SetConfig,
+        instanceId
+      );
+
+      if (validator.status === GaurdStatus.Error) {
+        return EvaluateFailure(validator.error, validator.status);
+      }
+    }
+
+    validate();
+    return () => {
+      const key = `DYVIX_${Version['version']}_File_theme_${instanceId}`;
+      const ele = document.getElementById(key);
+      if (ele) ele.remove();
+    };
+  }, [animation]);
+
+  useGSAP(() => {
+    if (!fileRef.current || !currentAnimation) return;
+
+    gsap.fromTo(fileRef.current, currentAnimation.from, {
+      ...currentAnimation.to,
+      duration: currentAnimation['default-duration'],
+      ease: currentAnimation.ease
+    });
+  }, [currentAnimation]);
 
   return (
-    <div className="dyvix-file-wrapper">
+    <div className="dyvix-file-wrapper" ref={fileRef}>
       <label className="dyvix-file" htmlFor="file-upload">
         <div className="dyvix-file-ui">
           <span className="dyvix-file-icon">📁</span>
