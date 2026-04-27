@@ -72,7 +72,7 @@ function DyvixFile({
       const ele = document.getElementById(key);
       if (ele) ele.remove();
     };
-  }, [animation]);
+  }, [animation, theme]);
 
   useGSAP(() => {
     if (!fileRef.current || !currentAnimation) return;

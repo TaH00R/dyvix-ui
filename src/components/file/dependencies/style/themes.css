@@ -5,10 +5,19 @@
   box-shadow: 0 0 30px #b903e2;
   -webkit-box-shadow: 0 0 30px #b903e2;
   -moz-box-shadow: 0 0 30px #b903e2;
+  transition: border-color 0.2s ease-in-out,
+              background 0.3s ease-in-out,
+              transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dyvix-file-lens p {
   color: whitesmoke;
+  transition: color 0.2s ease;
 }
-.dyvix-file-industrial {
-  background-color: rgb(108, 187, 11);
+.dyvix-file-lens:hover {
+  border-color: #6a2a7a; 
+  background: rgb(47, 4, 47);
+  transform: scale(1.02);
+}
+.dyvix-file-lens:hover p {
+  color: grey;
 }
