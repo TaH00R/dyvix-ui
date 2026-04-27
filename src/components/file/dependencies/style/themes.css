@@ -5,10 +5,113 @@
   box-shadow: 0 0 30px #b903e2;
   -webkit-box-shadow: 0 0 30px #b903e2;
   -moz-box-shadow: 0 0 30px #b903e2;
+  transition: border-color 0.2s ease-in-out,
+              background 0.3s ease-in-out,
+              transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dyvix-file-lens p {
   color: whitesmoke;
+  transition: color 0.2s ease;
+}
+.dyvix-file-lens:hover {
+  border-color: #6a2a7a; 
+  background: rgb(47, 4, 47);
+  transform: scale(1.02);
+}
+.dyvix-file-lens:hover p {
+  color: grey;
 }
 .dyvix-file-industrial {
-  background-color: rgb(108, 187, 11);
+  border: 2px dashed #374151;
+  border-radius: 5px;
+  background-color: #0a1429;
+  transition: border-radius 0.2s ease,
+              background-color 0.3s ease,
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dyvix-file-industrial p {
+  font-family: 'Geist';
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+.dyvix-file-industrial:hover {
+  border-radius: 10px;
+  background-color: #6b7280;  
+  transform: scale(1.03);
+}
+.dyvix-file-industrial:hover p {
+  color: #ffffff;
+}
+.dyvix-file-ember {
+  border-radius: 10px;
+  background-color: #0f0a08;
+  border-bottom: #ff4500 3px dashed;
+  box-shadow:
+    0px 17px 12px -9px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  -webkit-box-shadow:
+    0px 17px 12px -9px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  -moz-box-shadow:
+    0px 17px 12px -9px rgba(255, 69, 0, 0.73),
+    0px 0px 30px -10px rgba(255, 69, 0, 0.3);
+  transition:
+    transform 0.5s ease-in-out,
+    border-bottom 0.4s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    -webkit-box-shadow 0.3s ease-in-out,
+    -moz-box-shadow 0.3s ease-in-out;
+}
+.dyvix-file-ember p {
+  color: rgba(255, 69, 0, 0.9);
+  transition: color 0.2s ease-in-out, transform 0.22s ease-in-out;
+}
+.dyvix-file-ember:hover {
+  background-color: #0f0a08;
+  border-bottom-color: #ff6b00;
+  transform: translateY(-2px) scale(1.002);
+  box-shadow:
+    0px 17px 20px -9px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -webkit-box-shadow:
+    0px 17px 20px -9px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+  -moz-box-shadow:
+    0px 17px 20px -9px rgba(255, 69, 0, 0.9),
+    0px 0px 40px -5px rgba(255, 69, 0, 0.5);
+}
+.dyvix-file-ember:hover p {
+  color: #ff6b00;
+  transform: scale(1.002);
+}
+.dyvix-file-frost {
+  background-color: #ffffff1a;
+  border: 5px groove #ffffff40;
+  border-radius: 20px;
+  backdrop-filter: blur(50px);
+  box-shadow: -6px 2px 51px -7px rgba(213, 255, 248, 1) inset;
+  -webkit-box-shadow: -6px 2px 51px -7px rgba(213, 255, 248, 1) inset;
+  -moz-box-shadow: -6px 2px 51px -7px rgba(213, 255, 248, 1) inset;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease,
+              border-width 0.2s ease;
+}
+.dyvix-file-frost p {
+  color: rgba(213, 255, 248, 1);
+  transform: scale(1.01);
+  transition:
+  text-shadow 0.3s ease-in-out,
+  color 0.2s ease-in-out;
+}
+.dyvix-file-frost:hover {
+  background-color: #ffffff1a;
+  border: 8px groove #f8f8f840;
+  transform: scale(1.01);
+  box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
+  -webkit-box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
+  -moz-box-shadow: -6px 2px 51px -23px rgba(213, 255, 248, 1) inset;
+}
+.dyvix-file-frost:hover p {
+  color: #f8f8f840;
+  text-shadow: 0 0 8px rgba(213, 255, 248, 0.6);
 }
