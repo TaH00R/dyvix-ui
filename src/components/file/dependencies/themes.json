@@ -33,5 +33,10 @@
     "theme": "Aurora",
     "class": "dyvix-file-aurora",
     "default-animation": "aurora"
+  },
+  {
+    "theme": "Sunset",
+    "class": "dyvix-file-sunset",
+    "default-animation": "drop"
   }
 ]
