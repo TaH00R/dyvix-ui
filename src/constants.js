@@ -71,3 +71,8 @@ export const DYVIX_MODAL_ELEMENT =
   "AUTOCOMPLETE": "autocomplete",
   "CHECKBOX": "checkbox"
 }
+export const DYVIX_MODAL_PRESET = 
+ {
+  "REGISTER": "Register",
+  "LOGIN": "Login"
+}

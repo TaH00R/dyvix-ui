@@ -37,13 +37,18 @@ GenerateConstants(
   'modal_validation',
   'post'
 );
-
 GenerateConstants(
   './src/components/modal/dependencies/elements.json',
   'element',
   'modal',
   'post',
   'inherited-element'
+);
+GenerateConstants(
+  './src/components/modal/dependencies/presets.json',
+  'preset',
+  'modal',
+  'post'
 );
 
 function GenerateConstants(
