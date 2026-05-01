@@ -118,11 +118,7 @@ function App() {
       {mode === 'Selected' &&
         (() => {
           const Component = Links[current];
-          return (
-            <ReleaseBenchmark>
-              <Component />
-            </ReleaseBenchmark>
-          );
+          return <ReleaseBenchmark><Component /></ReleaseBenchmark>;
         })()}
     </>
   );
@@ -145,17 +141,8 @@ const ReleaseBenchmark = ({ children }) => {
 
   return (
     <div>
-      <div
-        style={{
-          fontSize: '10px',
-          color: '#888',
-          position: 'absolute',
-          right: '2rem',
-          top: '1rem'
-        }}
-      >
-        Estimated Render Time:{' '}
-        <span style={{ color: '#00ffcc' }}>{report}ms</span>
+      <div style={{ fontSize: '10px', color: '#888', position: 'absolute', right: "2rem", top: "1rem" }}>
+        Estimated Render Time: <span style={{ color: '#00ffcc' }}>{report}ms</span>
       </div>
       {children}
     </div>
