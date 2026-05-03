@@ -29,6 +29,10 @@ function App() {
   const headerRef = React.useRef(null);
   const btnRef = React.useRef([]);
 
+  function envClick(sender) {
+    SetCurrent(sender);
+  }
+
   localStorage.clear(); // Never do in production. Only in development env.
 
   useGSAP(() => {
