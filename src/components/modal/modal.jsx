@@ -317,7 +317,8 @@ function Modal({
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
                       ...(elementDef['supports-placeholder'] && {
-                        placeholder: field.placeholder[j]
+                        placeholder: field.placeholder[j],
+                        "aria-label": field.placeholder[j]
                       }),
                       ...(elementDef['supports_type'] && { type: field.type }),
                       ...(elementDef['supports_autocomplete'] && {
