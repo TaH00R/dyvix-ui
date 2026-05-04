@@ -228,7 +228,7 @@ function Modal({
   return (
     <>
       {visibility && (
-        <div ref={modalRef} className="dyvix-modal-wrapper">
+        <div ref={modalRef} className="dyvix-modal-wrapper" role="dialog" aria-modal="true" aria-labelledby="modal-header">
           <div
             className={`modal ${serilaizedclassName}`}
             id={Id}
@@ -317,7 +317,8 @@ function Modal({
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
                       ...(elementDef['supports-placeholder'] && {
-                        placeholder: field.placeholder[j]
+                        placeholder: field.placeholder[j],
+                        "aria-label": field.placeholder[j]
                       }),
                       ...(elementDef['supports_type'] && { type: field.type }),
                       ...(elementDef['supports_autocomplete'] && {
