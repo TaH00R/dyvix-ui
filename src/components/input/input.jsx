@@ -14,6 +14,7 @@ function DyvixInput({
   onFocus,
   onBlur,
   style,
+  onChange,
   ...rest
 }) {
 
@@ -34,7 +35,7 @@ function DyvixInput({
 
     GetFields();
     return () => {
-      const key = `DYVIX_${Version['version']}_Modal_theme_${instanceId}`;
+      const key = `DYVIX_${Version['version']}_Input_theme_${instanceId}`;
       const ele = document.getElementById(key);
       if (ele) ele.remove();
     };
@@ -42,9 +43,9 @@ function DyvixInput({
 
   const currentAnimation = animation ? configs['animation'] : null;
   const currentType = type ? configs['type'] : null;
-  const currentClass = className ? `${className} ${currentType?.class}` : currentType?.class;
+  const inputClasses = `dyvix-input ${currentType?.class} ${className}`.trim();
   const props = {
-    className: `dyvix-input ${currentClass}`,
+    className: inputClasses,
     type: currentType?.type,
     style: {
       ...(background && {background: background}),
@@ -65,6 +66,13 @@ function DyvixInput({
       onFocus(e)
     }
   }
+  function handleChange(e) {
+    if(typeof onChange === "function")
+    {
+      onChange(e)
+    }
+  }
+
   useGSAP(() => {
     if (!inputRef.current || !currentAnimation) return;
 
@@ -77,7 +85,7 @@ function DyvixInput({
 
   return (
     <div className='dyvix-input-wrapper' ref={inputRef} {...rest}>
-      <input {...props} onFocus={(e)=> handleFocus(e)} onBlur={(e)=> handleBlur(e)}></input>
+      <input {...props} onFocus={(e)=> handleFocus(e)} onBlur={(e)=> handleBlur(e)} onChange={(e) => handleChange(e)}></input>
     </div>
   )
 }
