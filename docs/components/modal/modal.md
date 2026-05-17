@@ -7,6 +7,10 @@ next:
 
 # Modal
 
+## Try it
+
+<ModalPlayground />
+
 The modal component is a core Dyvix UI component. It's a config driven, animated modal engine that supports multiple themes, animations, and validation presets out of the box.
 
 ## Attributes

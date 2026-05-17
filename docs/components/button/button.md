@@ -42,6 +42,6 @@ function ButtonExample() {
 }
 ```
 
-## Playground
+## Try it
 
 <ButtonPlayground />
