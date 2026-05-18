@@ -246,8 +246,12 @@
   gap: 5px;
   flex-wrap: wrap;
 }
-.exitbtn {
+.config-toolbar {
   position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  gap: 10px;
   top: 0;
   border-radius: 2rem;
   right: .5rem;

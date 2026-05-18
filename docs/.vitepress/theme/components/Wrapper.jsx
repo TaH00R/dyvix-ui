@@ -16,6 +16,7 @@ export default function Wrapper({
   const [activeConfig, setActive] = React.useState('');
   const [currentConfig, setConfig] = React.useState({});
   const [amount, setAmount] = React.useState(3);
+  const [showAdd, SetAdd] = React.useState(false);
 
   function handleCopy() {
     navigator.clipboard.writeText(snippet);
@@ -221,12 +222,22 @@ export default function Wrapper({
                             );
                           })}
                         </div>
-                        <button
-                          className="playground-config-btn exitbtn"
-                          onClick={() => setActive('')}
-                        >
-                          x
-                        </button>
+                        <div className='config-toolbar'>
+                          <button
+                            className="playground-config-btn"
+                            onClick={() => setActive('')}
+                          >
+                            X
+                          </button>
+                          <button
+                            className="playground-config-btn"
+                            onClick={() => SetAdd((prev => !prev))}
+                          >
+                            +
+                          </button>
+                        </div>
+                        {showAdd &&
+                        <div className='playground-add-config'>
                         {ele['config-rules'].map((rule) => {
                           const format = rule.formats;
                           const hasMultiple = format.includes('multiple');
@@ -347,9 +358,12 @@ export default function Wrapper({
                         >
                           Add
                         </button>
+                        </div>
+            }
                       </div>,
                       document.querySelector('.dyvix-playground-wrapper')
                     )}
+                    
                 </>
               );
             }
