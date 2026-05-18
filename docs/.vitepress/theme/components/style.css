@@ -221,14 +221,17 @@
 }
 .playground-item {
   display: flex;
-  flex-direction: row;
-  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
   font-size: 0.57rem;
   flex-wrap: wrap;
-  flex: 1 1 calc(50% - 10px);
-  border: #121118 solid 2px;
-  border-radius: 0.2rem;
-  padding: 2rem;
+  border: #bcb0ff solid 2px;
+  border-radius: 2rem;
+  padding: .5rem;
+}
+.playground-item button {
+  max-height: fit-content;
 }
 .playground-item-cont {
   display: flex;
@@ -243,10 +246,11 @@
   gap: 5px;
   flex-wrap: wrap;
 }
-.addbtn {
+.exitbtn {
   position: absolute;
   top: 0;
-  right: 1rem;
+  border-radius: 2rem;
+  right: .5rem;
 }
 .playgound-property-key {
   color: #7ee0ff;
@@ -259,5 +263,6 @@
   width: fit-content;
   padding: 0 5px;
   font-size: 1.5rem;
+  max-height: fit-content;
   text-align: center;
 }

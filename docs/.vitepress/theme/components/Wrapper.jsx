@@ -22,11 +22,15 @@ export default function Wrapper({
     setCopied(snippet);
     setTimeout(() => setCopied(null), 2000);
   }
-
   function handleConfigAddition() {
     const currentVal = componentConfig.find(
       (ele) => ele.utility === activeConfig && ele.type === 'config'
     );
+
+    const currentData = { 
+      ...currentConfig, 
+      amount: currentConfig.amount || amount 
+    };
 
     const isvalid = { status: 1, message: null };
 
@@ -34,7 +38,7 @@ export default function Wrapper({
       if (rule.required) {
         const format = rule.formats;
         const hasMultiple = format.includes('multiple');
-        const data = currentConfig[rule.rule];
+        const data = currentData[rule.rule];
 
         if (hasMultiple) {
           const isMissingEntry =
@@ -62,17 +66,29 @@ export default function Wrapper({
       return;
     }
 
-    console.log(currentConfig);
-
     componentCallback((prev) =>
       prev.map((item) =>
         item.utility === activeConfig
-          ? { ...item, current: [...item.current, ...[currentConfig]] }
+          ? { ...item, current: [...item.current, currentData] }
           : item
       )
     );
 
     setActive('');
+  }
+
+  function delconfig(index)
+  {
+    componentCallback((prev) =>
+    prev.map((item) =>
+      item.utility === activeConfig
+        ? { 
+            ...item, 
+            current: item.current.filter((_, i) => i !== index) 
+          }
+        : item
+    )
+  );
   }
 
   React.useEffect(() => {
@@ -188,16 +204,16 @@ export default function Wrapper({
                               )
                             );
                             return (
-                              <span key={j}>
+                              <span key={j} className="playground-item">
                                 <span className="playgound-config-index">
                                   {j + 1}
                                 </span>
-                                <div className="playground-item">
+                                <div className="playground-conf-content">
                                   {previewText}
                                 </div>
                                 <button
                                   className="playground-config-btn"
-                                  onClick={() => addNewConfig(ele.utility)}
+                                  onClick={() => delconfig(j)}
                                 >
                                   X
                                 </button>
@@ -206,10 +222,10 @@ export default function Wrapper({
                           })}
                         </div>
                         <button
-                          className="playground-config-btn addbtn"
-                          onClick={() => addNewConfig(ele.utility)}
+                          className="playground-config-btn exitbtn"
+                          onClick={() => setActive('')}
                         >
-                          + ADD FIELD
+                          x
                         </button>
                         {ele['config-rules'].map((rule) => {
                           const format = rule.formats;
@@ -234,7 +250,7 @@ export default function Wrapper({
                                   max={rule.max_val}
                                   min={1}
                                   className="playground-text"
-                                  value={amount}
+                                  defaultValue={amount}
                                   onChange={(e) => {
                                     const val = Math.min(
                                       Number(e.target.value),
@@ -247,6 +263,7 @@ export default function Wrapper({
                                       [rule.rule]: clamped
                                     }));
                                   }}
+                                  
                                 ></input>
                               ) : hasOptions ? (
                                 <div className="dynamic-input-list">
