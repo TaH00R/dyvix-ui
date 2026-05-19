@@ -12,13 +12,14 @@ function DyvixInput({
   color,
   animation = '!/',
   className = '',
-  onFocus,
-  onBlur,
-  style,
-  onChange,
   name,
   id,
   disabled,
+  'aria-label': ariaLabel,
+  onFocus,
+  onBlur,
+  onChange,
+  style,
   ...rest
 }) {
   const inputRef = React.useRef(null);
@@ -37,11 +38,15 @@ function DyvixInput({
     }
 
     GetFields();
+
+    /*
+    next update add themes
     return () => {
       const key = `DYVIX_${Version['version']}_Input_theme_${instanceId}`;
       const ele = document.getElementById(key);
       if (ele) ele.remove();
     };
+    */
   }, [type, animation]);
 
   const currentAnimation = animation ? configs['animation'] : null;
@@ -54,6 +59,7 @@ function DyvixInput({
     ...(name && {name: name}),
     ...(id && {id: id}),
     ...(disabled && {disabled: disabled}),
+    ... (ariaLabel && {'aria-label': ariaLabel}),
     style: {
       ...(background && { background: background }),
       ...(color && { color: color }),
