@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import Version from '../../../package.json';
 import './dependencies/style/style.css';
 import React from 'react';
 import { Validateinput } from './validation';
@@ -8,6 +7,7 @@ import { Validateinput } from './validation';
 function DyvixInput({
   type = 'text',
   placeholder,
+  autoComplete,
   background,
   color,
   animation = '!/',
@@ -39,26 +39,19 @@ function DyvixInput({
 
     GetFields();
 
-    /*
-    next update add themes
-    return () => {
-      const key = `DYVIX_${Version['version']}_Input_theme_${instanceId}`;
-      const ele = document.getElementById(key);
-      if (ele) ele.remove();
-    };
-    */
   }, [type, animation]);
 
   const currentAnimation = animation ? configs['animation'] : null;
   const currentType = type ? configs['type'] : null;
-  const inputClasses = `dyvix-input ${currentType?.class} ${className}`.trim();
+  const inputClasses = `dyvix-input ${currentType?.class ?? ''} ${className}`.trim();
   const props = {
     className: inputClasses,
     type: currentType?.type,
     ...(placeholder && {placeholder: placeholder}),
     ...(name && {name: name}),
     ...(id && {id: id}),
-    ...(disabled && {disabled: disabled}),
+    ...(autoComplete && {autoComplete: autoComplete}),
+    ...(disabled === true && {disabled: true}),
     ... (ariaLabel && {'aria-label': ariaLabel}),
     style: {
       ...(background && { background: background }),
