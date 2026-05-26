@@ -8,5 +8,15 @@
     "theme": "Industrial",
     "class": "dyvix-input-industrial",
     "default-animation": "fade"
+  },
+  {
+    "theme": "Ember",
+    "class": "dyvix-input-ember",
+    "default-animation": "glitch"
+  },
+  {
+    "theme": "Frost",
+    "class": "dyvix-input-frost",
+    "default-animation": "unfold"
   }
 ]
