@@ -12,14 +12,15 @@ import Version from '../../../package.json';
  * @param {string} [props.htmlFor] - Links the label to a form associated element
  * @param {string} [props.animation] - Animation name
  * @param {('Singularity'|'Industrial'|'Ember'|'Frost'|'Blade'|'Neon'|'Aurora'|'Sunset'|'Crimson'|'Midnight')} [props.theme] - Label theme
- */
+ * @param {Object} [props.style] - Inline styles overrides
+*/
 function DyvixLabel({
   children,
   className = '',
   htmlFor,
-  style,
   animation = 'fade',
   theme = '!/',
+  style,
   ...rest
 }) {
   const lblRef = React.useRef(null);
