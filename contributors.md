@@ -24,3 +24,4 @@ Thanks for everyone who has contributed to Dyvix UI!
 - [@ded-furby](https://github.com/ded-furby)
 - [@colord](https://github.com/colord)
 - [@skyswordw](https://github.com/skyswordw)
+- [@promptpolish-ai](https://github.com/promptpolish-ai)
