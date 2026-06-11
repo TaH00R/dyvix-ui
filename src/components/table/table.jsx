@@ -9,26 +9,7 @@ function DyvixTable({ children, className = '' }) {
   return (
     <div className="dyvix-table-wrapper">
       <table {...props}>
-        <tr>
-          <td>sdsd</td>
-          <td>sdsd</td>
-          <td>sdsd</td>
-        </tr>
-        <tr>
-          <td>sdsd</td>
-          <td>sdsd</td>
-          <td>sdsd</td>
-        </tr>
-        <tr>
-          <td>sdsd</td>
-          <td>sdsd</td>
-          <td>sdsd</td>
-        </tr>
-        <tr>
-          <td>sdsd</td>
-          <td>sdsd</td>
-          <td>sdsd</td>
-        </tr>
+        {children}
       </table>
     </div>
   );
