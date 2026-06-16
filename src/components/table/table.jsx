@@ -14,15 +14,24 @@ function DyvixTable({
   children,
   className = '',
   animation = 'fade',
+  background,
+  color,
   columns,
-  data
+  data,
+  style,
+  ...rest
 }) {
   const tableClasses = `dyvix-table ${className}`.trim();
   const instanceId = React.useId();
   const [configs, SetConfig] = React.useState({});
   const tableRef = React.useRef();
   const props = {
-    className: tableClasses
+    className: tableClasses,
+    style: {
+      ...(background && { background: background }),
+      ...(color && { color: color }),
+      ...style
+    }
   };
   const [isValid, SetIsvalid] = React.useState(false);
 
