@@ -1,7 +1,6 @@
 .dyvix-table-wrapper {
   width: 95%;
   margin: 0.3rem auto;
-  overflow-x: auto;
   border-radius: 25px;
 }
 .dyvix-table {
@@ -48,4 +47,9 @@ table[style*="color"] td {
 }
 .dyvix-table tbody tr:hover {
   background: rgba(255, 255, 255, 0.03);
+}
+@media (max-width: 640px) {
+  .dyvix-table-wrapper {
+    overflow-x: auto;
+  }
 }
