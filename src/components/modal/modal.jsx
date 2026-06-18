@@ -179,11 +179,11 @@ function Modal({
     2: '24rem',
     3: '26rem',
     4: '31rem',
-    5: '36rem',
+    5: '37rem',
     6: '41rem',
     7: '46rem',
-    8: '51rem',
-    9: '56rem'
+    8: '53rem',
+    9: '57rem'
   };
   let idealSize = heightMap[fields?.length] || '26rem';
   const geometryBuffer =
@@ -192,7 +192,7 @@ function Modal({
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   const dynamicHeight = isMobile ? `min(${idealSize}, 95vh)` : idealSize;
   const dynamicWidth = `min(${idealSize}, 95vw, 95vh)`;
-  const isCentered = fields?.length <= 5;
+  const isCentered = fields?.length <= 4;
   const dynamicMargin = isCentered ? '12vh auto' : '1.5rem auto';
 
   const defaultStyle = {
@@ -392,6 +392,7 @@ function Modal({
                       },
                       ...ariaAttributes,
                       ...(id && id !== '!/' && { id: id }),
+                      ...(elementDef['is_custom'] && {animation: null}),
                       ...(elementDef['supports-placeholder'] && {
                         placeholder: field.placeholder[j],
                         'aria-label': field.placeholder[j]
@@ -428,7 +429,8 @@ function Modal({
                       ...(elementDef.tag === 'DyvixFile' && {
                         onUpload: (e) => {
                           handleInputChange(name, e);
-                        }
+                        },
+                        ...((theme === '!/' || !theme) && {background: "transparent"} )
                       })
                     };
 
@@ -472,6 +474,7 @@ function Modal({
                 className="modal-btn"
                 onClick={handleSubmit}
                 theme={theme.toLowerCase()}
+                animation={null}
               >
                 {currentType.submitLabel}
               </DyvixButton>
